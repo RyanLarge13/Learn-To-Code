@@ -29,8 +29,13 @@ cd /your/chosen/directory
 
 3. Clone the repo using git or [gs](https://github.com/RyanLarge13/Git-Shorthands/)
 
+#### git
 ```
-git clone https://github.com/your-username/learn-to-code.git
+git clone https://github.com/RyanLarge13/Learn-To-Code.git
+```
+#### gs
+```
+gs clone Learn-To-Code -RyanLarge13
 ```
 
 ### Compile and Run
