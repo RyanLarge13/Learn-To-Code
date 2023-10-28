@@ -65,39 +65,59 @@ void start() {
 	typeText(intro, 35);
 	cout << endl << endl;
 	string question = colorRed + "How good are you?" + endColor;
-	typeText(question, 75);
+	typeText(question, 50);
 	cout << endl << endl;
-	string command = colorBlue + "Write the command to list all of the files within a directory on a Linux terminal..." + endColor;
-	typeText(command, 100);
+	string command = colorBlue + "Right here right now.. \n How do i list files in my directory\n while using a Linuz Terminal?" + endColor;
+	typeText(command, 50);
 	cout << endl << endl;
 	string lsCommand;
 	cin >> lsCommand;
 	if (lsCommand == "ls") {
-		cout << endl << endl;
+		cout << endl;
 		string typingText = colorRed + "Not bad for a rookie..." + endColor;
 		typeText(typingText, 75);
 		cout << endl << endl;
-		string questionTwo = colorBlue + "How would one make a new directory within your current terminal location?" + endColor;
-		typeText(questionTwo, 75);
+		string questionTwo = colorBlue + "I a Linux Terminal..\n How do i create a new directory?" + endColor;
+		typeText(questionTwo, 50);
 		cout << endl << endl;
 		string makeDir;
 		cin >> makeDir;
 		if (makeDir == "mkdir") {
 			cout << endl;
 			string success = colorRed + "Okay so you know some basics..." + endColor;
-			string letsStart = colorRed + "Let's start the game with some simple tasks..\n\nA new Linux user called LTC today and complained that her GUI interface disappear but the terminal and file access remains but is having trouble working the terminal. Please listen to her message and respond promptly.. You are going to be our new Software Engineer. Congrats" + endColor;
+			string letsStart = colorRed + "Let's start the game with a simple tasks.\n\nA new Linux user called LTC today,\n she complained that her GUI interface crashed.\n The terminal and file access remains,\n but she is having trouble working with it.\nPlease listen to her message and respond promptly\nYou are going to be our new Software Engineer.\nCongratulations..." + endColor;
+			string confirm = colorBlue + "Are you ready to take this on?" + endColor;
 			typeText(success, 75);
 			cout << endl << endl;
 			typeText(letsStart, 35);
-			cout << endl;
-			delayAndCallFunction(startGame, 1500);
+			cout << endl << endl;
+			typeText(confirm, 35);
+			cout << endl << endl;
+			string answer;
+			cin >> answer;
+			if (answer == "Y" || answer == "y" || answer == "Yes" || answer == "yes") {
+				string thanks = colorRed + "Okay, great. Here is the message she left..." + endColor;
+				cout << endl;
+				typeText(thanks, 35);
+				delayAndCallFunction(startGame, 2500);
+			}
 		}
 	}
 }
 
 void startGame() {
 	clearScreen();
-	string startGameText = colorPurple + "I am having trouble with my new Linux computer. I have no GUI interface and have no idea how to access my files. I need you to find the directory with my GUI.md file pleaseeeee..." + endColor;
+	string startGameText = colorPurple + "I am having trouble\n with my new Linux computer.\n I have no GUI interface, \nand have no idea how to access my files.\n I need you to find the directory\n with my GUI.md file pleaseeeee..." + endColor;
 	typeText(startGameText, 25);
 	cout << endl << endl;
+	cout << colorRed + "1. Okay ******* 2. No Thanks" + endColor;
+	cout << endl << endl;
+	int answer;
+	cin >> answer;
+	if (answer == 1) {
+		cout << endl << endl;
+		string thankYouTxt = colorPurple + "Thank you.\n Here is my terminal" + endColor;
+		typeText(thankYouTxt, 35);
+		delayAndCallFunction(clearScreen, 1000);
+	}
 }
