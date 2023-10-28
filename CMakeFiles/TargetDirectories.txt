@@ -1,0 +1,3 @@
+/data/data/com.termux/files/home/C++/LearnToCode/CMakeFiles/MyLearningGame.dir
+/data/data/com.termux/files/home/C++/LearnToCode/CMakeFiles/edit_cache.dir
+/data/data/com.termux/files/home/C++/LearnToCode/CMakeFiles/rebuild_cache.dir

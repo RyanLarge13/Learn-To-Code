@@ -1,13 +1,13 @@
 #include <iostream>
+#include "menu.h"
 #include <chrono>
 #include <thread>
 using namespace std;
 
-void printMenu();
-void start();
-void startGame();
+//void printMenu();
+//void start();
+//void startGame();
 
-//string colorGreen = "\033[83m";
 string colorYellow = "\033[31m";
 string colorRed = "\033[32m";
 string colorBlue = "\033[33m";
@@ -35,14 +35,20 @@ void typeText(const std::string& text, int delayMs) {
 
 int main(int argc, char* argv[]) {
 	clearScreen();
+	Menu menu;
+	menu.display();
+	while (true) {
+		// Check for user input (e.g., Control + O)
+	}
+
+	/*	clearScreen();
 	string welcomeText = colorRed + "Hello Coder & Welcome to LTC." + endColor;
 	typeText(welcomeText, 50);
-	cout << endl;
-	delayAndCallFunction(printMenu, 750);
+	cout << endl;*/
 	return 0;
 };
 
-void printMenu() {
+/*void printMenu() {
 	cout << colorRed + "\nMenu" + endColor << endl << colorWhite + "*******" + endColor << endl << endl;
 	cout << colorCyan + "1." + endColor << " Start\n" << colorYellow + "2." + endColor << " Quit" << endl << endl;
 	int option;
@@ -58,9 +64,9 @@ void printMenu() {
 		cout << "Please choose a valid option" << endl;
 		printMenu();
 	}
-}
+}*/
 
-void start() {
+/*void start() {
 	string intro = colorRed + "Let's begin a new journey... First thing is first." + endColor;
 	typeText(intro, 35);
 	cout << endl << endl;
@@ -120,4 +126,4 @@ void startGame() {
 		typeText(thankYouTxt, 35);
 		delayAndCallFunction(clearScreen, 1000);
 	}
-}
+}*/
