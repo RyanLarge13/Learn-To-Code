@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 # Add the executable
 add_executable(MyLearningGame src/main.cpp
-    src/game/Game.cpp
+    src/game/game.cpp
     src/states/menu.cpp
     src/states/Lessons.cpp
     src/states/Terminal.cpp

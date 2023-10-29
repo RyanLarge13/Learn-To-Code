@@ -129,29 +129,29 @@ MyLearningGame/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyLearningGame.dir/build.make CMakeFiles/MyLearningGame.dir/build
 .PHONY : MyLearningGame/fast
 
-src/game/Game.o: src/game/Game.cpp.o
-.PHONY : src/game/Game.o
+src/game/game.o: src/game/game.cpp.o
+.PHONY : src/game/game.o
 
 # target to build an object file
-src/game/Game.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyLearningGame.dir/build.make CMakeFiles/MyLearningGame.dir/src/game/Game.cpp.o
-.PHONY : src/game/Game.cpp.o
+src/game/game.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyLearningGame.dir/build.make CMakeFiles/MyLearningGame.dir/src/game/game.cpp.o
+.PHONY : src/game/game.cpp.o
 
-src/game/Game.i: src/game/Game.cpp.i
-.PHONY : src/game/Game.i
+src/game/game.i: src/game/game.cpp.i
+.PHONY : src/game/game.i
 
 # target to preprocess a source file
-src/game/Game.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyLearningGame.dir/build.make CMakeFiles/MyLearningGame.dir/src/game/Game.cpp.i
-.PHONY : src/game/Game.cpp.i
+src/game/game.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyLearningGame.dir/build.make CMakeFiles/MyLearningGame.dir/src/game/game.cpp.i
+.PHONY : src/game/game.cpp.i
 
-src/game/Game.s: src/game/Game.cpp.s
-.PHONY : src/game/Game.s
+src/game/game.s: src/game/game.cpp.s
+.PHONY : src/game/game.s
 
 # target to generate assembly for a file
-src/game/Game.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyLearningGame.dir/build.make CMakeFiles/MyLearningGame.dir/src/game/Game.cpp.s
-.PHONY : src/game/Game.cpp.s
+src/game/game.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyLearningGame.dir/build.make CMakeFiles/MyLearningGame.dir/src/game/game.cpp.s
+.PHONY : src/game/game.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -378,9 +378,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... MyLearningGame"
-	@echo "... src/game/Game.o"
-	@echo "... src/game/Game.i"
-	@echo "... src/game/Game.s"
+	@echo "... src/game/game.o"
+	@echo "... src/game/game.i"
+	@echo "... src/game/game.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

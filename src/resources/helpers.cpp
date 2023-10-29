@@ -18,4 +18,5 @@ void typeText(const std::string& text, int delayMs) {
 		std::cout << c << std::flush;
 		std::this_thread::sleep_for(std::chrono::milliseconds(delayMs));
 	}
+	cout << endl << endl;
 }
