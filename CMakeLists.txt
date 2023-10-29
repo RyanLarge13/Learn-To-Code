@@ -13,6 +13,8 @@ add_executable(MyLearningGame src/main.cpp
     src/text/Delays.cpp
     src/text/Type.cpp
     src/user/User.cpp
+    src/resources/colors.cpp
+    src/resources/helpers.cpp
 )
 
 # You can add more source files as your project grows.
