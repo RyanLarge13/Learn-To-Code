@@ -24,6 +24,7 @@ target_include_directories(MyLearningGame PRIVATE include)
 
 # Link any additional libraries if needed
 # target_link_libraries(MyLearningGame your_additional_libraries)
+target_link_libraries(MyLearningGame ${CURSES_LIBRARIES})
 
 # Copy data files to the build directory
 file(COPY src/data/ DESTINATION ${CMAKE_BINARY_DIR}/data)
@@ -38,6 +39,8 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 # add_compile_options(-Wall -Wextra)
 
 # Optional: Find and link external libraries (e.g., for JSON parsing)
+find_package(Curses REQUIRED)
+include_directories(${CURSES_INCLUDE_DIR})
 # find_package(YourLibrary REQUIRED)
 # target_link_libraries(MyLearningGame YourLibrary)
 
