@@ -10,7 +10,7 @@ using namespace std;
 Game GameClass;
 
 pair < bool, int > checkChoice(int input) {
-	if (input == 1 || input == 2 || input == 3) {
+	if (input == 1 || input == 2 || input == 3 || input == 4) {
 		return make_pair(true, input);
 	} else {
 		return make_pair(false, 0);
@@ -25,7 +25,7 @@ Menu::Menu() {
 }
 
 void Menu::display() {
-	cout << endl << colorRed + "Main Menu" + endColor << endl;
+	cout << colorRed + "Main Menu" + endColor << endl;
 	cout << colorWhite + "*******" + endColor << endl;
 	for (int i = 0; i < options.size(); i++) {
 		cout << " " << colorCyan << i + 1 << ". " << endColor << options[i] << endl;
