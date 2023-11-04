@@ -1,9 +1,13 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <vector>
 #include "helpers.h"
 #include "colors.h"
 using namespace std;
+
+using StringsType = const vector < string>&;
+using StringType = const string&;
 
 void clearScreen() {
 	cout << "\x1B[2J\x1B[H";
@@ -14,10 +18,10 @@ void delayAndCallFunction(function < void() > func, int delayMilliseconds) {
 	func();
 }
 
-void typeText(const std::string& text, int delayMs) {
+void typeText(StringType text, int delayMs) {
 	for (char c: text) {
-		std::cout << c << std::flush;
-		std::this_thread::sleep_for(std::chrono::milliseconds(delayMs));
+		cout << c << flush;
+		this_thread::sleep_for(chrono::milliseconds(delayMs));
 	}
 	cout << endl << endl;
 }

@@ -1,5 +1,4 @@
 #include <iostream>
-#include <unistd.h>
 #include "menu.h"
 #include "colors.h"
 #include "helpers.h"
@@ -9,7 +8,7 @@ Menu MainMenu;
 
 int main(int argc, char* argv[]) {
 	clearScreen();
-	string welcomeText = colorRed + "Hello Coder & Welcome to LTC." + endColor;
+	string welcomeText = colorRed + "Hello Coder & Welcome to LTC" + endColor;
 	typeText(welcomeText, 50);
 	MainMenu.display();
 	MainMenu.handleInput();
