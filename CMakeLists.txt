@@ -9,9 +9,12 @@ add_executable(MyLearningGame
     src/main.cpp
     src/states/game.cpp
     src/states/menu.cpp
+    src/states/menu.cpp
+    src/states/terminal.cpp
     src/resources/colors.cpp
     src/resources/helpers.cpp
     src/resources/sections.cpp
+    src/resources/terminalEnvs.cpp
 )
 
 # You can add more source files as your project grows.

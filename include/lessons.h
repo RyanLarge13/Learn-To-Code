@@ -5,8 +5,6 @@
 #include <iostream>
 using namespace std;
 
-using namespace std;
-
 // Class data structure for easy access to big string data and making conditional checks on user inputs cleaner
 
 class Section {
