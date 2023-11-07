@@ -1,3 +1,4 @@
+#include "lessons.h"
 #ifndef GAME_H
 #define GAME_H
 
@@ -8,7 +9,7 @@ class Game {
 	void startSection2();
 
 	private:
-	bool getAnswerSec1();
+	bool getSectionAnswers(const Section& section);
 };
 
 #endif

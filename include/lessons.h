@@ -20,11 +20,12 @@ class Section {
 	...
 	*/
 	public:
-	Section(const vector < string>& strings, const string& question, const vector < string>& answers): strings(strings),
+	Section(const vector < string>& strings, const string& question, const vector < string>& answers, const vector < string>& replies): strings(strings),
 	question(question),
-	answers(answers) {}
+	answers(answers),
+	replies(replies) {}
 
-// Section methods for accessing Section class instance data
+	// Section methods for accessing Section class instance data
 	const vector < string>& getStrings() const {
 		return strings;
 	}
@@ -34,11 +35,15 @@ class Section {
 	const vector < string>& getAnswers() const {
 		return answers;
 	}
+	const vector < string>& getReplies() const {
+		return replies;
+	}
 
 	private:
 	vector < string > strings;
 	string question;
 	vector < string > answers;
+	vector < string > replies;
 };
 
 #endif

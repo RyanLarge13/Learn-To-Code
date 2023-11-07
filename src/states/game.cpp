@@ -22,34 +22,46 @@ Game::Game() {
 }
 
 // private method
-bool Game::getAnswerSec1() {
-	//Fetching section1 vector data {answers}
-	StringsType sec1Answers = section1.getAnswers();
+bool Game::getSectionAnswers(const Section& section) {
+	//Fetching section1 vector data {answers && replies}
+	StringsType secAnswers = section.getAnswers();
+	StringsType secReplies = section.getReplies();
 	bool found = false;
 	string answer;
 	cout << colorYellow + "Command: " + endColor;
 	cin >> answer;
-	for (StringType str: sec1Answers) {
+	for (StringType str: secAnswers) {
 		if (str == answer) {
 			found = true;
 			break;
 		}
 	}
 	if (found) {
-		typeText(colorRed + "\nNice job. " + endColor + colorYellow + answer + endColor + colorRed + " is correct.. Let's do another" + endColor, 30);
+		if (tries == 0) {
+			typeText(secReplies[0], 30);
+			return true;
+		}
+		if (tries == 1) {
+			typeText(secReplies[1], 30);
+			tries = 0;
+			return true;
+		}
 		tries = 0;
 		return true;
 	} else {
-		//If the answer is incorrect 3 times... Game over.
+		//If the answer is incorrect 2 times... Game over.
 		if (tries == 1) {
-			typeText(colorRed + "\nI am sorry... This interview is over. Goodbye", 50);
+			typeText(secReplies[3], 50);
 			return false;
 		}
-		typeText(colorRed + "\nThat is incorrect.. I will give you only one more shot at this!" + endColor, 30);
+		typeText(secReplies[2], 30);
 		answer = "";
 		tries += 1;
-		//Recursive callback when answer is incorrect
-		getAnswerSec1();
+		//Recursive callback when answer is inincorrect and tries < 1;
+		bool secondCheck = getSectionAnswers(section);
+		if (secondCheck) {
+			return true;
+		}
 		return false;
 	}
 }
@@ -62,9 +74,10 @@ void Game::start() {
 	// Using section one data to type story
 	typeText(sec1Strings[0], 30);
 	typeText(sec1Question, 30);
-	bool passed = getAnswerSec1();
+	bool passed = getSectionAnswers(section1);
 	if (passed) {
 		startSection2();
+		tries = 0;
 	}
 }
 
@@ -73,4 +86,8 @@ void Game::startSection2() {
 	StringType sec2Question = section2.getQuestion();
 	typeText(sec2Strings[0], 30);
 	typeText(sec2Question, 30);
+	bool passed = getSectionAnswers(section2);
+	if (passed) {
+		cout << "nice" << endl;
+	}
 }
