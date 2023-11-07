@@ -3,8 +3,12 @@
 
 class Game {
 	public:
-	  Game();
-	  void start();
+	Game();
+	void start();
+	void startSection2();
+
+	private:
+	bool getAnswerSec1();
 };
 
 #endif
