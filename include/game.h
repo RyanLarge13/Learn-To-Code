@@ -7,6 +7,7 @@ class Game {
 	Game();
 	void start();
 	void startSection2();
+	void startSection3();
 
 	private:
 	bool getSectionAnswers(const Section& section);

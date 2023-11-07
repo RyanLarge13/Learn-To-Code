@@ -5,18 +5,20 @@
 #include "colors.h"
 #include "helpers.h"
 #include "lessons.h"
+#include "terminal.h"
 using namespace std;
 
 // Importing section data
 extern Section section1;
 extern Section section2;
+extern Section section3;
 
 // Globally defining types, complex types and state
 using StringsType = const vector < string>&;
 using StringType = const string&;
 int tries = 0;
 
-
+Terminal TerminalInstance;
 Game::Game() {
 	// Initialize constructor
 }
@@ -88,6 +90,19 @@ void Game::startSection2() {
 	typeText(sec2Question, 30);
 	bool passed = getSectionAnswers(section2);
 	if (passed) {
-		cout << "nice" << endl;
+		startSection3();
+	}
+}
+
+void Game::startSection3() {
+	StringsType sec3Strings = section3.getStrings();
+	StringType sec3Question = section3.getQuestion();
+	typeText(sec3Strings[0], 30);
+	typeText(sec3Strings[1], 30);
+	typeText(sec3Question, 30);
+	bool accepted = getSectionAnswers(section3);
+	if (accepted) {
+		TerminalInstance.initialize();
+		TerminalInstance.lesson1();
 	}
 }

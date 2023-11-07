@@ -26,3 +26,14 @@ Section section2({
 	colorRed + "\nCome on guy... One more try" + endColor,
 	colorRed + "\nLook, being capable of listing directories in a Linux terminal is a must, but I need someone with a bit more knowledge than that. Go home and do some homework before coming back here please." + endColor
 });
+
+Section section3({
+	{
+		colorRed + "It's time to put you to work.\n\nRead through this assignment and get to work immediately. This lady is a regular customer and needs your help" + endColor, colorPurple + "Dear LTC. \n\n Just recently I gave my computer to a friend of mine to try and figure out why it was running so slow. Well, when he gave it back to me the computer no longer works...\n\nAll I see is a black screen and some kind of prompt.. Please help me fix this.\n\nSincerly\nAnabel Giblin" + endColor
+	}
+}, colorBlue + "She is stuck in a terminal interface and you need to fix it.. Here is her computer... Are you able to do this?" + endColor, {
+	"yes", "y", "yahh", "ya", "yah", "yup", "-Y", "Y"
+}, {
+	colorRed + "\nOkay, sounds good. Here is her computer, I just turned it on. You should be logged in as super user" + endColor,
+	colorRed + "\nLook, I am not taking no for an answer or anything for that matter. Here is the terminal. Figure it out." + endColor,
+});

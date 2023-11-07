@@ -13,8 +13,42 @@ Terminal::Terminal() {
 }
 
 void Terminal::initialize() {
-	clearScreen();
-	cout << colorCyan + "~$USER_1 ";
+	system("clear");
 }
 
-void Terminal::lesson1() {}
+void Terminal::printConsole(string matchedCommand, string alias) {
+	if (matchedCommand == "ls") {
+		vector < Folder > folders = env1.getAllFolders();
+		for (const Folder& folder: folders) {
+			cout << colorYellow + folder.name + endColor;
+		}
+		cout << "\n" << alias;
+	}
+}
+
+void Terminal::lesson1() {
+	vector < string > commands = env1.getAllCommands();
+	bool isValidCommand = false;
+	string matchedCommand;
+	string alias = colorCyan + "~/Anabel_G $ " + endColor;
+	cout << alias;
+	while (true) {
+		string command;
+		cin >> command;
+		for (string str: commands) {
+			if (str == command) {
+				isValidCommand = true;
+				matchedCommand = str;
+				break;
+			}
+		}
+		if (!isValidCommand) {
+			cout << colorYellow + "\nError: unknown command '" + command + "' did you mean ls?\n" + endColor << alias;
+		}
+		if (isValidCommand) {
+			printConsole(matchedCommand, alias);
+			matchedCommand = "";
+			isValidCommand = false;
+		}
+	}
+}
