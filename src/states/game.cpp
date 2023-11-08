@@ -98,7 +98,7 @@ void Game::startSection3() {
 	StringsType sec3Strings = section3.getStrings();
 	StringType sec3Question = section3.getQuestion();
 	typeText(sec3Strings[0], 30);
-	typeText(sec3Strings[1], 30);
+	typeText(sec3Strings[1], 1);
 	typeText(sec3Question, 30);
 	bool accepted = getSectionAnswers(section3);
 	if (accepted) {

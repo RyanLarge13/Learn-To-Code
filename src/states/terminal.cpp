@@ -13,6 +13,8 @@ Terminal::Terminal() {
 	//Initialize terminal
 }
 
+string dir = "/";
+
 void Terminal::initialize() {
 	system("clear");
 }
@@ -33,47 +35,61 @@ void Terminal::printConsole(vector < string > inputs, string alias) {
 	vector < Folder > folders = env1.getAllFolders();
 	string command = inputs[0];
 	if (command == "ls") {
-		string argument = inputs[1];
-		if (inputs.size() > 0 && argument == "-a") {
+		if (inputs.size() > 1) {
+			string argument = inputs[1];
 			cout << "Running hidden folders & files find";
 		} else {
 			for (Folder& folder: folders) {
-				cout << colorCyan + folder.name + endColor + "  ";
+				cout << folder.name + "  ";
 			}
 		}
-		cout << "\n" + alias;
+		cout << "\n" + alias + colorCyan + "/" + dir + " $ " + endColor;
 	}
 	if (command == "cd") {
+		if (inputs.size() > 1) {
 			string argument = inputs[1];
-		if (inputs.size() > 0) {
-			cout << alias + "/" + colorCyan + argument + endColor;
+			bool contains = false;
+			for (Folder& folder: folders) {
+				if (folder.name == argument) {
+					contains = true;
+					break;
+				}
+			}
+			if (contains) {
+				dir = argument;
+				cout << alias + colorCyan + "/" + dir + " $ " + endColor;
+			} else {
+				cout << colorRed + "Error: no such directory exsists to make a new folder, run mkdir " + endColor + colorYellow + argument + "\n" + endColor;
+			}
 		} else {
-			cout << colorRed + "\nNo such directory exsists. Run mkdir " + argument + " to create it\n" + endColor;
+			dir = "/";
 			cout << alias;
 		}
 	}
 }
 
 void Terminal::lesson1() {
-	string alias = colorCyan + "~/Anabel_G $ " + endColor;
+	string alias = colorCyan + "~/Anabel_G" + endColor;
 	vector < string > allCommands;
-	cout << alias;
+	cout << alias << " $ ";
 	while (true) {
-		string command;
-		cin >> command;
-		istringstream iss(command);
+		string input;
+		getline(cin, input);
+		istringstream iss(input);
 		string word;
 		while (iss >> word) {
 			allCommands.push_back(word);
 		}
-		bool isValid = validateCommand(allCommands[0]);
-		if (isValid) {
-			printConsole(allCommands,
-				alias);
-		} else {
-			cout << colorYellow + "\nError: invalid command '" + endColor + colorRed + allCommands[0] + endColor + colorYellow + "'\n" + endColor;
-			cout << alias;
+		if (!allCommands.empty()) {
+			bool isValid = validateCommand(allCommands[0]);
+			if (isValid) {
+				printConsole(allCommands,
+					alias);
+			} else {
+				cout << colorYellow + "\nError: invalid command '" + endColor + colorRed + allCommands[0] + endColor + colorYellow + "'\n" + endColor;
+				cout << alias;
+			}
+			allCommands.clear();
 		}
-		allCommands.clear();
 	}
 }
