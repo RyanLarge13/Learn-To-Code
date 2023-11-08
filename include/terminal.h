@@ -7,8 +7,9 @@ class Terminal {
 	public:
 	Terminal();
 	void initialize();
+	bool validateCommand(string firstInput);
 	void lesson1();
-	void printConsole(string matchedCommand, string alias);
+	void printConsole(vector <string> allCommands, string alias);
 };
 
 #endif

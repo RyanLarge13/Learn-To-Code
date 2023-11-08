@@ -2,7 +2,7 @@
 #include "colors.h"
 
 File env1File1({
-	colorWhite + "test.txt" + endColor
+	colorWhite + ".bashrc" + endColor
 }, {
 	"r", "w", "x"
 }, {
@@ -12,7 +12,7 @@ File env1File1({
 });
 
 Folder env1Folder1({
-	colorPurple + ".bashrc" + endColor
+	colorPurple + "bin/" + endColor
 }, {
 	"r", "w"
 }, {
